@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.top-menu {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100vw;
+    background-color: black;
+    /* padding: 0 50px; */
+}
+
+.top-menu .top-menu-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    width: 100%;
+    padding: 0 50px;
+}
+
+.top-menu .top-menu-content img {
+    height: 60px;
+}
+
+.top-menu .top-menu-content nav {
+    font-family: Grandissimo;
+    color: white;
+}
+
+.top-menu .top-menu-content nav a {
+    text-decoration: none;
+    color: white;
+    transition: 100ms;
+    font-size: 13px;
+}
+
+.top-menu .top-menu-content nav a:hover {
+    text-decoration: underline;
+    color: red;
+    transition: 500ms;
+}
+
+.area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #303030;
+    min-height: calc(100vh - 100px);
+}
+
+.area .area-content{
+    width: 100%;
+    max-width: 1074px;
+    background-color: black;
+    padding: 10px 20px;
+}
+
+.carousel {
+    height: 80vh;
+    max-width: 100vw;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-control-next:hover{
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, transparent);
+}
+
+.carousel-control-prev:hover{
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, transparent);
+}
+
+.carousel-indicators button {
+    background-color: black !important;
+    height: 20px !important;
+    width: 20px !important;
+    border-radius: 50% !important;
+    opacity: 1 !important; 
+}
+
+.carousel-indicators .active {
+    background-color: red !important;
+}
+
+@font-face {
+    font-family: Grandissimo;
+    src: url('./assets/fonts/Grandissimo.ttf')
+}
