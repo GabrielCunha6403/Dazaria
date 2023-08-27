@@ -51,7 +51,6 @@ body {
   justify-content: center;
   width: 100%;
   background-color: #303030;
-  min-height: calc(100vh - 100px);
 }
 
 .area .area-content {
@@ -205,6 +204,7 @@ body {
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
+  padding: 35px 0;
 }
 
 .produtos-row::-webkit-scrollbar {
@@ -283,18 +283,44 @@ body {
 .footer .footer-btn-area button {
   display: flex;
   flex-direction: row;
-  border: red;
+  align-items: center;
   border-radius: 5px;
+  border: none;
   background-color: red;
   color: white;
   text-align: start;
   margin: 5px 0;
-  padding: 15px 20px;
+  transition: 200ms;
+  /* padding: 15px 20px; */
 }
 
 .footer .footer-btn-area button svg {
-  color: white;
-  height: 80%;
+  fill: white;
+  height: 30px;
+  margin: 8px;
+}
+
+.footer .footer-btn-area button label {
+  margin-right: 8px;
+}
+
+.footer .footer-btn-area button label:hover {
+  cursor: pointer;
+}
+
+.footer .footer-btn-area #whatsapp-button:hover {
+  background-color: #25d366;
+}
+
+.footer .footer-btn-area #instagram-button:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 220, 128, 1) 0%,
+    rgba(225, 48, 108, 1) 22%,
+    rgba(131, 58, 180, 1) 100%,
+    rgba(252, 70, 107, 1) 100%,
+    #405de6 100%
+  );
 }
 
 @font-face {
