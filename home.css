@@ -289,7 +289,7 @@ body {
   background-color: red;
   color: white;
   text-align: start;
-  margin: 5px 0;
+  margin: 7px 0;
   transition: 200ms;
   /* padding: 15px 20px; */
 }
@@ -298,6 +298,7 @@ body {
   fill: white;
   height: 30px;
   margin: 8px;
+  transition: 200ms;
 }
 
 .footer .footer-btn-area button label {
@@ -310,6 +311,7 @@ body {
 
 .footer .footer-btn-area #whatsapp-button:hover {
   background-color: #25d366;
+  box-shadow: 2px 2px 0 #25d366, 6px 6px 0 #25d365aa,  10px 10px 0 #25d36567;
 }
 
 .footer .footer-btn-area #instagram-button:hover {
@@ -321,9 +323,119 @@ body {
     rgba(252, 70, 107, 1) 100%,
     #405de6 100%
   );
+  box-shadow: 2px 2px 0 rgba(131, 58, 180), 6px 6px 0 rgba(131, 58, 180, 0.75),  10px 10px 0 rgba(131, 58, 180, 0.5);
+}
+
+.footer .footer-btn-area button:hover svg {
+  height: 35px;
+}
+
+/* ======================== BOTÃO DO MENU SUPERIOR ========================*/
+
+.menu {
+  --s: 30px; /* control the size */
+  --c: rgb(255, 255, 255); /* the color */
+  
+  height: var(--s);
+  aspect-ratio: 1;
+  border: none;
+  padding: 0;
+  border-inline: calc(var(--s)/2) solid #0000; 
+  box-sizing: content-box;
+  --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
+         no-repeat content-box border-box;
+  --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
+         repeat-y content-box border-box;
+  background: 
+    var(--_g2) left  var(--_p,0px) top,
+    var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
+    var(--_g2) right var(--_p,0px) top,
+    var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
+  background-size: 
+    20% 80%,
+    40% 100%;
+  position: relative;
+  clip-path: inset(0 25%);
+  -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+  cursor: pointer;
+  transition: 
+    background-position .3s var(--_s,.3s), 
+    clip-path 0s var(--_s,.6s);
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+}
+.menu:before,
+.menu:after {
+  content:"";
+  position: absolute;
+  border-radius: var(--s);
+  inset: 40% 0;
+  background: var(--c);
+  transition: transform .3s calc(.3s - var(--_s,.3s));
+}
+
+.menu:checked {
+  clip-path: inset(0);
+  --_p: calc(-1*var(--s));
+  --_s: 0s;
+  --c: rgb(255, 0, 0);
+}
+.menu:checked:before {
+  transform: rotate(45deg);
+}
+.menu:checked:after {
+  transform: rotate(-45deg);
+}
+.menu:focus-visible {
+  clip-path: none;
+  -webkit-mask: none;
+  border: none;
+  outline: 2px solid var(--c);
+  outline-offset: 5px;
+}
+
+/* ======================== /BOTÃO DO MENU SUPERIOR ========================*/
+
+.background-menu {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000000a3;
+}
+
+.button-top-menu {
+  display: none;
+}
+
+.menu:checked .top-menu-options {
+  background-color: red;
 }
 
 @font-face {
   font-family: Grandissimo;
   src: url("./assets/fonts/Grandissimo.ttf");
+}
+
+@media (max-width: 830px) {
+  .button-top-menu {
+    display: flex;
+    justify-content: flex-end;
+    height: 100px;
+    align-items: center;
+    padding: 0 20px;
+  }
+  .top-menu nav{
+    display: flex;
+    flex-direction: column;
+  }
+  .top-menu .top-menu-options{
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+    height: 100vh;
+  }
 }

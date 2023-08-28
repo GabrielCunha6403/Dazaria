@@ -1,14 +1,7 @@
-const carouselElement = document.querySelector('#carouselExampleDark');
+var $toggleMenu = document.getElementById('close-menu');
 
-carouselElement.addEventListener('slide.bs.carousel', event => {
-    console.log("assererre")
+$('input[type="checkbox"]').on('change', function() {
+    console.log("deu certo");
 })
 
-function goToWhatsapp() {
-    window.open('https://wa.me/85988481999', '_blank');
-}
-
-function goToInstagram() {
-    window.open('https://www.instagram.com/j.gabriel.cj/', '_blank');
-}
 
