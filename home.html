@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./js/jquery-3.6.4.min.js"></script>
-    <script src="./home.js"></script>
+    <script src="./js/home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="home.css">
     <link rel="shortcut icon" href="./assets/ico/name-abr.ico" type="image/x-icon">
@@ -16,11 +16,11 @@
         <div class="top-menu">
             <div class="top-menu-content">
                 <img src="./assets/imgs/logo-top-menu.png">
-                <div class="background-menu">
+                <div class="button-top-menu">
+                    <input id="close-menu" onclick="toggleMenu(this)" type="checkbox" role="button" aria-label="Display the menu" class="menu">
+                </div>
+                <div class="background-menu" id="background-menu">
                     <div class="top-menu-options" id="menu-mobile">
-                        <div class="button-top-menu">
-                            <input id="close-menu" type="checkbox" role="button" aria-label="Display the menu" class="menu">
-                        </div>
                         <nav>
                             <a href="">HOME</a>
                             <a href="">CONTATO</a>
