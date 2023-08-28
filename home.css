@@ -153,7 +153,7 @@ body {
 .card-produto .card-image {
   height: 195px;
   width: 100%;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: 200ms;
