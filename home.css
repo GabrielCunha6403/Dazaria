@@ -216,7 +216,7 @@ body {
 }
 
 .produtos-row::-webkit-scrollbar-thumb {
-  background: #b30000;
+  background: #939393;
   width: 2px;
   border-radius: 10px;
   transition: 200ms;
@@ -224,7 +224,7 @@ body {
 }
 
 .produtos-row::-webkit-scrollbar-thumb:hover {
-  background: red;
+  background: rgb(255, 255, 255);
 }
 
 .footer {
