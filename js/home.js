@@ -13,7 +13,7 @@ function closeMenu() {
 }
 
 function goToWhatsapp() {
-    window.open('https://wa.me/85988481999', '_blank');
+    window.open('https://wa.me/5585988481999', '_blank');
 }
 
 function goToInstagram() {
