@@ -1,5 +1,9 @@
 
-var carrinho = [];
+var carrinho = {
+    itens: [],
+    valorTotal: 0,
+    quantidade: 0
+};
 
 function toggleMenu(element) {
     if(element.checked) {
@@ -20,3 +24,22 @@ function goToWhatsapp() {
 function goToInstagram() {
     window.open('https://www.instagram.com/j.gabriel.cj/', '_blank');
 }
+
+$(document).ready(function() {
+    
+    $('.card-produto').on('click', function() {
+        let produto = {
+            nome: $(this).find("label").text(),
+            valor: $(this).find("span").text(),
+            quantidade: 1
+        }
+
+        let index = carrinho.itens.findIndex(({nome}) => nome == produto.nome);
+        if(index != -1) carrinho.itens[index].quantidade += 1;
+        else carrinho.itens.push(produto);
+        
+        carrinho.quantidade++;
+        $('#carrinho-btn span').text((carrinho.quantidade).toString());
+    });
+
+});
