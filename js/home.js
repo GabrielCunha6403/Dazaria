@@ -1,7 +1,8 @@
 
+var carrinho = [];
+
 function toggleMenu(element) {
     if(element.checked) {
-        console.log($('.background-menu'));
         $('.background-menu').addClass('open');
     } else {
         $('.background-menu').removeClass('open');
