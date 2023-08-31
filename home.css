@@ -448,7 +448,7 @@ body {
   left: 0;
   background-color: #000000a3;
   z-index: 11;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
@@ -459,6 +459,7 @@ body {
   width: 760px;
   font-family: Grandissimo;
   padding: 20px;
+  animation: openModal .2s;
 }
 
 .background-carrinho .carrinho-container .carrinho-header {
@@ -501,12 +502,26 @@ body {
   height: 100%;
 }
 
+.open {
+  display: flex !important;
+}
+
 @font-face {
   font-family: Grandissimo;
   src: url("./assets/fonts/Grandissimo.ttf");
 }
 
 @media (max-width: 830px) {
+  .background-carrinho .carrinho-container { 
+    width: 100%;
+    margin: 0 11%;
+  }
+  .background-carrinho .carrinho-container .carrinho-header h2{
+    font-size: .8rem !important;
+  } 
+  .background-carrinho .carrinho-container .carrinho-header #btn-close-carrinho svg{
+    height: 30px;
+  } 
   .top-menu #carrinho-btn {
     position: fixed;
     bottom: 40px;
@@ -564,9 +579,6 @@ body {
     padding-top: 105px;
     z-index: 5;
   }
-  .open {
-    display: flex !important;
-  }
 }
 
 @media (max-width: 930px) {
@@ -605,5 +617,16 @@ body {
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes openModal {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
