@@ -36,10 +36,11 @@ $(document).ready(function() {
 
         let index = carrinho.itens.findIndex(({nome}) => nome == produto.nome);
         if(index != -1) carrinho.itens[index].quantidade += 1;
-        else carrinho.itens.push(produto);
-        
-        carrinho.quantidade++;
-        $('#carrinho-btn span').text((carrinho.quantidade).toString());
+        else {
+            carrinho.itens.push(produto);
+            carrinho.quantidade++;
+            $('#carrinho-btn span').text((carrinho.quantidade).toString());
+        }
     });
 
 });

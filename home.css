@@ -170,13 +170,18 @@ body {
 .card-produto {
   min-width: 202px;
   height: 300px;
-  border: 1px solid #f00;
+  /* border: 1px solid #f00; */
+  background-color: #303030;
   overflow: hidden;
   /* position: relative; */
   border-radius: 35px 0;
   margin-right: 30px;
   margin-bottom: 25px;
   transition: 200ms;
+}
+
+.card-produto:hover * {
+  cursor: pointer;
 }
 
 .card-produto a {
@@ -433,6 +438,67 @@ body {
 
 .button-top-menu {
   display: none;
+}
+
+.background-carrinho {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: #000000a3;
+  z-index: 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-carrinho .carrinho-container {
+  background-color: black;
+  height: 450px;
+  width: 760px;
+  font-family: Grandissimo;
+  padding: 20px;
+}
+
+.background-carrinho .carrinho-container .carrinho-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid red;
+}
+
+#btn-close-carrinho{
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  height: 45px;
+  padding: 0;
+  font-size: 35px;
+  position: relative;
+  transition: 200ms;
+}
+
+#btn-close-carrinho:hover svg {
+  fill: red !important;
+}
+
+.background-carrinho .carrinho-container .carrinho-header #btn-close-carrinho svg{
+  fill: white;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .2s;
+}
+
+.background-carrinho .carrinho-container .carrinho-header h2 {
+  font-size: 20px;
+  color: white;
+}
+
+.background-carrinho .carrinho-container .carrinho-body {
+  height: 100%;
 }
 
 @font-face {
