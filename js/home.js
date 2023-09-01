@@ -13,8 +13,11 @@ function toggleMenu(element) {
     }
 }
 
-function openCarrinhoModal() {
+function openModalCarrinho() {
     $('.background-carrinho').addClass('open');
+
+    
+
 }
 
 function closeMenu() {

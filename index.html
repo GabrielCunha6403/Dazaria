@@ -28,7 +28,7 @@
                             </nav>
                         </div>
                     </div>
-                    <button onclick="$('.background-carrinho').addClass('open')" class="carrinho-btn" id="carrinho-btn">
+                    <button onclick="openModalCarrinho()" class="carrinho-btn" id="carrinho-btn">
                         <span>0</span>
                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"/></svg>
                     </button>
@@ -215,7 +215,132 @@
                 </button>
             </div>
             <div class="carrinho-body">
-                Carrinho vazio!
+                <div class="empty-message d-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/></svg>
+                    Adicione itens no carrinho!
+                </div>
+                <div class="table-products">
+                    <div class="table-products-header row">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">Informações</div>
+                        <div class="col-md-3"> Quantidade</div>
+                        <div class="col-md-3">Valor</div>
+                    </div>
+                    <div class="table-body">
+
+                        <div class="row">
+                            <div class="img-content col-md-3 col-product"></div>
+                            <div class="col-md-3 col-product">
+                                <div class="product-info-row">
+                                    <h5>Camisa tchururu</h5>
+                                    <label>Cor: preto</label>
+                                    <label>Tamanho: P</label>
+                                    <label>Valor: R$ 80,00</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-product">
+                                <select>
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-product">
+                                <label class="product-value-row">R$ 80,00</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="img-content col-md-3 col-product"></div>
+                            <div class="col-md-3 col-product">
+                                <div class="product-info-row">
+                                    <h5>Camisa tchururu</h5>
+                                    <label>Cor: preto</label>
+                                    <label>Tamanho: P</label>
+                                    <label>Valor: R$ 80,00</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-product">
+                                <select>
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-product">
+                                <label class="product-value-row">R$ 80,00</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="img-content col-md-3 col-product"></div>
+                            <div class="col-md-3 col-product">
+                                <div class="product-info-row">
+                                    <h5>Camisa tchururu</h5>
+                                    <label>Cor: preto</label>
+                                    <label>Tamanho: P</label>
+                                    <label>Valor: R$ 80,00</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-product">
+                                <select>
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-product">
+                                <label class="product-value-row">R$ 80,00</label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <table>
+                    <thead>
+                        <tr id="table-header-carrinho">
+                            <th></th>
+                            <th>Informações</th>
+                            <th>Quantidade</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody style="max-height: 400px; overflow-y: auto;">
+                        <tr class="w-100 h-100" style="background-color: red;">
+                        </tr>
+                        <tr>
+                            <td class="product-image-row">
+                                <div class="img-content"></div>
+                            </td>
+                            <td>
+                                <div class="product-info-row">
+                                    <h5>Camisa tchururu</h5>
+                                    <label>Cor: preto</label>
+                                    <label>Tamanho: P</label>
+                                    <label>Valor: R$ 80,00</label>
+                                </div>
+                            </td>
+                            <td>
+                                <select>
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                            <td>
+                                <label class="product-value-row">R$ 80,00</label>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table> -->
             </div>
             <div class="carrinho-sub">
 
@@ -234,7 +359,7 @@
                 </button>
             </div>
             <div class="carrinho-body">
-                Carrinho vazio!
+                Carrinho vazio! 
             </div>
             <div class="carrinho-sub">
 
