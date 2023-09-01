@@ -28,7 +28,6 @@ body {
 
 #carrinho-btn span {
   display: block;
-  content: '2';
   background: red;
   border-radius: 50%;
   height: 20px;
@@ -211,7 +210,7 @@ body {
 .card-produto .card-info .preco {
   display: flex;
   align-items: start;
-  color: red;
+  color: rgb(255, 255, 255);
   font-size: 20px;
 }
 
@@ -245,24 +244,24 @@ body {
   padding: 35px 0;
 }
 
-.produtos-row::-webkit-scrollbar {
+* ::-webkit-scrollbar {
   width: 5px;
 }
 
-.produtos-row::-webkit-scrollbar-track {
+* ::-webkit-scrollbar-track {
   border-radius: 10px;
 }
 
-.produtos-row::-webkit-scrollbar-thumb {
-  background: #939393;
+* ::-webkit-scrollbar-thumb {
+  background: #9b0000;
   width: 2px;
   border-radius: 10px;
   transition: 200ms;
   height: 2px;
 }
 
-.produtos-row::-webkit-scrollbar-thumb:hover {
-  background: rgb(255, 255, 255);
+* ::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 0, 0);
 }
 
 .footer {
@@ -453,7 +452,29 @@ body {
   justify-content: center;
 }
 
+.background-produto {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: #000000a3;
+  z-index: 11;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
 .background-carrinho .carrinho-container {
+  background-color: black;
+  min-height: 450px;
+  width: 760px;
+  font-family: Grandissimo;
+  padding: 20px;
+  animation: openModal .2s;
+}
+
+.background-produto .produto-container {
   background-color: black;
   min-height: 450px;
   width: 760px;
@@ -469,7 +490,51 @@ body {
   border-bottom: 2px solid red;
 }
 
-#btn-close-carrinho{
+.background-produto .produto-container .produto-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 2px solid red;
+}
+
+.produto-body {
+  display: flex;
+  margin: 20px 0;
+}
+
+.produto-body .produto-image {
+  height: 380px;
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.produto-header svg {
+  fill: white;
+  height: 35px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: .2s;
+}
+
+.produto-header svg:hover {
+  fill: red;
+}
+
+#btn-close-carrinho {
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  height: 45px;
+  padding: 0;
+  font-size: 35px;
+  position: relative;
+  transition: 200ms;
+}
+
+#btn-close-produto {
   background-color: transparent;
   border: none;
   width: 30px;
