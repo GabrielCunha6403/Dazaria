@@ -22,7 +22,7 @@ body {
   transition: 200ms;
 }
 
-.top-menu #carrinho-btn:hover svg{
+.top-menu #carrinho-btn:hover svg {
   fill: red;
 }
 
@@ -37,7 +37,8 @@ body {
   top: -10px;
   right: -4px;
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .top-menu #carrinho-btn svg {
@@ -348,7 +349,7 @@ body {
 
 .footer .footer-btn-area #whatsapp-button:hover {
   background-color: #25d366;
-  box-shadow: 2px 2px 0 #25d366, 6px 6px 0 #25d365aa,  10px 10px 0 #25d36567;
+  box-shadow: 2px 2px 0 #25d366, 6px 6px 0 #25d365aa, 10px 10px 0 #25d36567;
 }
 
 .footer .footer-btn-area #instagram-button:hover {
@@ -360,7 +361,8 @@ body {
     rgba(252, 70, 107, 1) 100%,
     #405de6 100%
   );
-  box-shadow: 2px 2px 0 rgba(131, 58, 180), 6px 6px 0 rgba(131, 58, 180, 0.75),  10px 10px 0 rgba(131, 58, 180, 0.5);
+  box-shadow: 2px 2px 0 rgba(131, 58, 180), 6px 6px 0 rgba(131, 58, 180, 0.75),
+    10px 10px 0 rgba(131, 58, 180, 0.5);
 }
 
 .footer .footer-btn-area button:hover svg {
@@ -373,49 +375,45 @@ body {
   --s: 30px; /* control the size */
   --c: rgb(255, 255, 255); /* the color */
   z-index: 10;
-  
+
   height: var(--s);
   aspect-ratio: 1;
   border: none;
   padding: 0;
-  border-inline: calc(var(--s)/2) solid #0000; 
+  border-inline: calc(var(--s) / 2) solid #0000;
   box-sizing: content-box;
-  --_g1: linear-gradient(var(--c) 20%,#0000 0 80%,var(--c) 0) 
-         no-repeat content-box border-box;
-  --_g2: radial-gradient(circle closest-side at 50% 12.5%,var(--c) 95%,#0000) 
-         repeat-y content-box border-box;
-  background: 
-    var(--_g2) left  var(--_p,0px) top,
-    var(--_g1) left  calc(var(--s)/10 + var(--_p,0px)) top,
-    var(--_g2) right var(--_p,0px) top,
-    var(--_g1) right calc(var(--s)/10 + var(--_p,0px)) top;
-  background-size: 
-    20% 80%,
-    40% 100%;
+  --_g1: linear-gradient(var(--c) 20%, #0000 0 80%, var(--c) 0) no-repeat
+    content-box border-box;
+  --_g2: radial-gradient(circle closest-side at 50% 12.5%, var(--c) 95%, #0000)
+    repeat-y content-box border-box;
+  background: var(--_g2) left var(--_p, 0px) top,
+    var(--_g1) left calc(var(--s) / 10 + var(--_p, 0px)) top,
+    var(--_g2) right var(--_p, 0px) top,
+    var(--_g1) right calc(var(--s) / 10 + var(--_p, 0px)) top;
+  background-size: 20% 80%, 40% 100%;
   position: relative;
   clip-path: inset(0 25%);
-  -webkit-mask: linear-gradient(90deg,#0000,#000 25% 75%,#0000);
+  -webkit-mask: linear-gradient(90deg, #0000, #000 25% 75%, #0000);
   cursor: pointer;
-  transition: 
-    background-position .3s var(--_s,.3s), 
-    clip-path 0s var(--_s,.6s);
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  appearance:none;
+  transition: background-position 0.3s var(--_s, 0.3s),
+    clip-path 0s var(--_s, 0.6s);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .menu:before,
 .menu:after {
-  content:"";
+  content: "";
   position: absolute;
   border-radius: var(--s);
   inset: 40% 0;
   background: var(--c);
-  transition: transform .3s calc(.3s - var(--_s,.3s));
+  transition: transform 0.3s calc(0.3s - var(--_s, 0.3s));
 }
 
 .menu:checked {
   clip-path: inset(0);
-  --_p: calc(-1*var(--s));
+  --_p: calc(-1 * var(--s));
   --_s: 0s;
   --c: rgb(255, 0, 0);
 }
@@ -471,7 +469,7 @@ body {
   width: 760px;
   font-family: Grandissimo;
   padding: 20px;
-  animation: openModal .2s;
+  animation: openModal 0.2s;
 }
 
 .background-produto .produto-container {
@@ -480,7 +478,7 @@ body {
   width: 760px;
   font-family: Grandissimo;
   padding: 20px;
-  animation: openModal .2s;
+  animation: openModal 0.2s;
 }
 
 .background-carrinho .carrinho-container .carrinho-header {
@@ -508,6 +506,42 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.produto-body .produto-info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+}
+
+.produto-body .produto-info .input-tamanho {
+  margin: 20px 0;
+}
+
+.produto-body .produto-info .input-tamanho button {
+  background-color: #303030;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: white;
+  padding: 8px 15px;
+  transition: 0.2s;
+  border: 1px solid #303030;
+}
+
+.produto-body .produto-info .input-tamanho button:hover {
+  color: red;
+  border: 1px solid red;
+}
+
+.selected {
+  background-color: red !important;
+  color: #303030 !important;
+  border: 1px solid red !important;
 }
 
 .produto-header svg {
@@ -516,7 +550,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .produto-header svg:hover {
@@ -549,13 +583,17 @@ body {
   fill: red !important;
 }
 
-.background-carrinho .carrinho-container .carrinho-header #btn-close-carrinho svg{
+.background-carrinho
+  .carrinho-container
+  .carrinho-header
+  #btn-close-carrinho
+  svg {
   fill: white;
   height: 35px;
   position: absolute;
   top: 0;
   left: 0;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .background-carrinho .carrinho-container .carrinho-header h2 {
@@ -576,7 +614,8 @@ body {
   color: white;
   padding: 50px 0;
   font-size: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .background-carrinho .carrinho-container .carrinho-body .empty-message svg {
@@ -606,7 +645,8 @@ body {
   border-radius: 13px;
   color: white;
   font-size: 20px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   padding: 10px 17px;
 }
 
@@ -615,7 +655,8 @@ body {
   height: 40px;
   color: white;
   font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .product-value-row {
@@ -629,10 +670,11 @@ body {
   overflow-x: hidden;
   border-top: 1px solid #303030;
   color: white;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.table-body .row{
+.table-body .row {
   padding: 20px 20px;
 }
 
@@ -652,16 +694,20 @@ body {
 }
 
 @media (max-width: 830px) {
-  .background-carrinho .carrinho-container { 
+  .background-carrinho .carrinho-container {
     width: 100%;
     margin: 0 11%;
   }
-  .background-carrinho .carrinho-container .carrinho-header h2{
-    font-size: .8rem !important;
-  } 
-  .background-carrinho .carrinho-container .carrinho-header #btn-close-carrinho svg{
+  .background-carrinho .carrinho-container .carrinho-header h2 {
+    font-size: 0.8rem !important;
+  }
+  .background-carrinho
+    .carrinho-container
+    .carrinho-header
+    #btn-close-carrinho
+    svg {
     height: 30px;
-  } 
+  }
   .top-menu #carrinho-btn {
     position: fixed;
     bottom: 40px;
@@ -697,7 +743,7 @@ body {
     top: 0;
     left: 0;
     background-color: #000000a3;
-    animation: opacityin .2s;
+    animation: opacityin 0.2s;
   }
   .button-top-menu {
     display: flex;
@@ -705,17 +751,17 @@ body {
     height: 100px;
     align-items: center;
   }
-  .top-menu nav{
+  .top-menu nav {
     display: flex;
     flex-direction: column;
   }
-  .top-menu .top-menu-options{
+  .top-menu .top-menu-options {
     position: fixed;
     top: 0;
     right: 0;
     background-color: black;
     height: 100vh;
-    animation: slidein .3s;
+    animation: slidein 0.3s;
     padding-top: 105px;
     z-index: 5;
   }
@@ -747,7 +793,7 @@ body {
     opacity: 0;
   }
   100% {
-    opacity: 1
+    opacity: 1;
   }
 }
 
