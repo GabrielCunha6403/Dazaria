@@ -46,7 +46,7 @@ function openModalCarrinho() {
       const produto = carrinho.itens[i];
       html +=
           "<div class='row'>" +
-          "<div class='img-content col-md-3 col-product'></div>" +
+          "<div class='img-content col-md-3 col-product' style='background-image: " + produto.imagePath + "'></div>" +
           "<div class='col-md-3 col-product'>" +
               "<div class='product-info-row'>" +
                 "<h5>" + produto.nome +"</h5>" +
