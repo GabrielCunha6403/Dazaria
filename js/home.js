@@ -13,6 +13,65 @@ function toggleMenu(element) {
 }
 
 function openModalCarrinho() {
+
+//   <div class="row">
+//   <div class="img-content col-md-3 col-product"></div>
+//   <div class="col-md-3 col-product">
+//       <div class="product-info-row">
+//           <h5>Camisa tchururu</h5>
+//           <label>Cor: preto</label>
+//           <label>Tamanho: P</label>
+//           <label>Valor: R$ 80,00</label>
+//       </div>
+//   </div>
+//   <div class="col-md-3 col-product">
+//       <select>
+//           <option selected value="1">1</option>
+//           <option value="2">2</option>
+//           <option value="3">3</option>
+//           <option value="4">4</option>
+//           <option value="5">5</option>
+//       </select>
+//   </div>
+//   <div class="col-md-3 col-product">
+//       <label class="product-value-row">R$ 80,00</label>
+//   </div>
+// </div>
+
+  let table = $(".carrinho-body .table-body");
+
+  if(carrinho.itens.length > 0) {
+    let html = '';
+    for (let i = 0; i < carrinho.itens.length; i++) {
+      const produto = carrinho.itens[i];
+      html +=
+          "<div class='row'>" +
+          "<div class='img-content col-md-3 col-product'></div>" +
+          "<div class='col-md-3 col-product'>" +
+              "<div class='product-info-row'>" +
+                "<h5>" + produto.nome +"</h5>" +
+                "<label>Tamanho: " + produto.tamanho + "</label>" +
+                "<label>Valor: " + produto.valor + "</label>" +
+              "</div>" +
+            "</div>" +
+            "<div class='col-md-3 col-product'>" +
+              "<select>" + 
+                "<option selected value='1'>1</option>" +
+                "<option value='2'>2</option>" +
+                "<option value='3'>3</option>" +
+                "<option value='4'>4</option>" +
+                "<option value='5'>5</option>" +
+              "</select>" +
+            "</div>" +
+            "<div class='col-md-3 col-product'>" +
+              "<label class='product-value-row'>" + produto.valor + "</label>" +
+            "</div>" +
+          "</div>"
+      
+    }
+    table.html(html);
+  }
+
   $(".background-carrinho").addClass("open");
 }
 
@@ -77,27 +136,8 @@ $(document).ready(function () {
         "</button>" +
       "</div>"
     );
-
   });
 
-  $("#btn-adicionar-carrinho").on("click", function () {
-    let modal = $(".produto-body");
-    let produto = {
-      nome: modal.find(".produto-info h4").text(),
-      valor: modal.find(".valor-area label").text(),
-      quantidade: modal.find(".input-quantidade input").val(),
-      tamanho: modal.find(".tamanho-btn-area .selected").text(),
-      imagePath: modal.find(".produto-image").css("backgroundImage"),
-    };
-    let index = carrinho.itens.findIndex(({nome}) => nome == produto.nome);
-    if(index != -1) carrinho.itens[index].quantidade += 1;
-    else {
-        carrinho.itens.push(produto);
-        carrinho.quantidade++;
-        $('#carrinho-btn span').text((carrinho.quantidade).toString());
-    }
-    $('.carrinho-btn span').removeClass('d-none');
-  });
 });
 
 function mais() {
