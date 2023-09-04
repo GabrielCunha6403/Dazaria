@@ -4,6 +4,31 @@ var carrinho = {
   quantidade: 0,
 };
 
+var messageDefault = calcHours() + " Tenho uma dúvida sobre...";
+
+function calcHours() {
+  const agora = new Date();
+  const hora = agora.getHours();
+
+  if (hora >= 5 && hora < 12) {
+    return "Bom dia!";
+  } else if (hora >= 12 && hora < 18) {
+    return "Boa tarde!";
+  } else {
+    return "Boa noite!";
+  }
+}
+
+function generateCarrinhoMessage() {
+  let message = calcHours() + ' Tenho interesse no(s) seguinte(s) item(ns): ' + encodeURI('\n');
+  for (let i in carrinho.itens){
+    let produto = carrinho.itens[i];
+    message += produto.quantidade + 'x ' + produto.nome + ' tamanho ' + produto.tamanho + encodeURI('\n') ;
+  }
+  message += 'Fico no aguardo do retorno!';
+  return message;
+}
+
 function toggleMenu(element) {
   if (element.checked) {
     $(".background-menu").addClass("open");
@@ -14,33 +39,13 @@ function toggleMenu(element) {
 
 function openModalCarrinho() {
 
-//   <div class="row">
-//   <div class="img-content col-md-3 col-product"></div>
-//   <div class="col-md-3 col-product">
-//       <div class="product-info-row">
-//           <h5>Camisa tchururu</h5>
-//           <label>Cor: preto</label>
-//           <label>Tamanho: P</label>
-//           <label>Valor: R$ 80,00</label>
-//       </div>
-//   </div>
-//   <div class="col-md-3 col-product">
-//       <select>
-//           <option selected value="1">1</option>
-//           <option value="2">2</option>
-//           <option value="3">3</option>
-//           <option value="4">4</option>
-//           <option value="5">5</option>
-//       </select>
-//   </div>
-//   <div class="col-md-3 col-product">
-//       <label class="product-value-row">R$ 80,00</label>
-//   </div>
-// </div>
-
   let table = $(".carrinho-body .table-body");
 
   if(carrinho.itens.length > 0) {
+    $(".carrinho-sub button").prop("disabled", false);
+    $(".carrinho-sub #finalizar-whatsapp").removeClass("btn-disabled");
+    $(".empty-message").addClass("d-none");
+    $(".table-products").removeClass("d-none");
     let html = '';
     for (let i = 0; i < carrinho.itens.length; i++) {
       const produto = carrinho.itens[i];
@@ -55,13 +60,11 @@ function openModalCarrinho() {
               "</div>" +
             "</div>" +
             "<div class='col-md-3 col-product'>" +
-              "<select>" + 
-                "<option selected value='1'>1</option>" +
-                "<option value='2'>2</option>" +
-                "<option value='3'>3</option>" +
-                "<option value='4'>4</option>" +
-                "<option value='5'>5</option>" +
-              "</select>" +
+              "<div class='quantidade-area'>" +
+                "<button id='btn-menos' onclick='menos()'>-</button>" +
+                "<input type='number' value='" + produto.quantidade + "' min='1' readonly>" +
+                "<button id='btn-mais' onclick='mais()'>+</button>" +
+              "</div>" +
             "</div>" +
             "<div class='col-md-3 col-product'>" +
               "<label class='product-value-row'>" + produto.valor + "</label>" +
@@ -70,6 +73,11 @@ function openModalCarrinho() {
       
     }
     table.html(html);
+  } else {
+    $(".empty-message").removeClass("d-none");
+    $(".table-products").addClass("d-none");
+    $(".carrinho-sub #finalizar-whatsapp").addClass("btn-disabled");
+    $(".carrinho-sub button").prop("disabled", true);
   }
 
   $(".background-carrinho").addClass("open");
@@ -83,8 +91,12 @@ function closeProduto() {
   $(".background-produto").removeClass("open");
 }
 
+function sendCarrinhoWhatsapp() {
+  window.open("https://wa.me/5585988481999?text=" + generateCarrinhoMessage(), "_blank");
+}
+
 function goToWhatsapp() {
-  window.open("https://wa.me/5585988481999", "_blank");
+  window.open("https://wa.me/5585988481999?text=" + messageDefault, "_blank");
 }
 
 function goToInstagram() {
@@ -175,4 +187,10 @@ function addProductToCar() {
   }
   $('.carrinho-btn span').removeClass('d-none');
   closeProduto();
+}
+
+function cleanCarrinho() {
+  carrinho.itens = [];
+  $('.carrinho-btn span').addClass('d-none');
+  openModalCarrinho();
 }
