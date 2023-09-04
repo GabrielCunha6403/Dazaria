@@ -51,23 +51,27 @@ function openModalCarrinho() {
       const produto = carrinho.itens[i];
       html +=
           "<div class='row'>" +
-          "<div class='img-content col-md-3 col-product' style='background-image: " + produto.imagePath.replaceAll("'", '"') + ";'></div>" +
-          "<div class='col-md-3 col-product'>" +
-              "<div class='product-info-row'>" +
-                "<h5>" + produto.nome +"</h5>" +
-                "<label>Tamanho: " + produto.tamanho + "</label>" +
-                "<label>Valor: " + produto.valor + "</label>" +
+          "<div class='img-content col-3 col-product' style='background-image: " + produto.imagePath.replaceAll("'", '"') + ";'></div>" +
+            "<div class='col-9'>" +
+              "<div class='row'>" +
+                "<div class='col-3 col-product'>" +
+                  "<div class='product-info-row'>" +
+                    "<h5>" + produto.nome +"</h5>" +
+                    "<label>Tamanho: " + produto.tamanho + "</label>" +
+                    "<label>Valor: " + produto.valor + "</label>" +
+                  "</div>" +
+                "</div>" +
+                "<div class='col-5 col-product'>" +
+                  "<div class='quantidade-area'>" +
+                    "<button id='btn-menos' onclick='menos()'>-</button>" +
+                    "<input type='number' value='" + produto.quantidade + "' min='1' readonly>" +
+                    "<button id='btn-mais' onclick='mais()'>+</button>" +
+                  "</div>" +
+                "</div>" +
+                "<div class='col-3 col-product'>" +
+                  "<label class='product-value-row'>" + produto.valor + "</label>" +
+                "</div>" +
               "</div>" +
-            "</div>" +
-            "<div class='col-md-3 col-product'>" +
-              "<div class='quantidade-area'>" +
-                "<button id='btn-menos' onclick='menos()'>-</button>" +
-                "<input type='number' value='" + produto.quantidade + "' min='1' readonly>" +
-                "<button id='btn-mais' onclick='mais()'>+</button>" +
-              "</div>" +
-            "</div>" +
-            "<div class='col-md-3 col-product'>" +
-              "<label class='product-value-row'>" + produto.valor + "</label>" +
             "</div>" +
           "</div>"
       
@@ -121,25 +125,27 @@ $(document).ready(function () {
       '<div class="produto-image" style="background-image: ' + url.replaceAll('"', "'") + ';"></div>' +
       '<div class="produto-info">' +
         "<h4>" + produto.nome + "</h4>" +
-        "<div class='input-tamanho'>" +
-          "<h5 class='required'>Tamanho</h5>" +
-          "<div class='tamanho-btn-area'>" +
-            "<button onclick='selectProductSize(this)'>P</button>" +
-            "<button onclick='selectProductSize(this)'>M</button>" +
-            "<button onclick='selectProductSize(this)'>G</button>" +
-          "</div>"+
-        "</div>" +
-        "<div class='input-quantidade'>" +
-          "<h5>Quantidade</h5>" +
-          "<div class='quantidade-area'>" +
-            "<button id='btn-menos' onclick='menos()'>-</button>" +
-            "<input type='number' value='1' min='1' readonly>" +
-            "<button id='btn-mais' onclick='mais()'>+</button>" +
+        "<div class='produto-info-mobile'>" +
+          "<div class='input-tamanho'>" +
+            "<h5 class='required'>Tamanho</h5>" +
+            "<div class='tamanho-btn-area'>" +
+              "<button onclick='selectProductSize(this)'>P</button>" +
+              "<button onclick='selectProductSize(this)'>M</button>" +
+              "<button onclick='selectProductSize(this)'>G</button>" +
+            "</div>"+
           "</div>" +
-        "</div>" +
-        "<div class='valor-area'>" +
-          "<h5 class='m-0'>Valor unitário</h5>" +
-          "<label>" + produto.valor + "</label>" +
+          "<div class='input-quantidade'>" +
+            "<h5>Quantidade</h5>" +
+            "<div class='quantidade-area'>" +
+              "<button id='btn-menos' onclick='menos()'>-</button>" +
+              "<input type='number' value='1' min='1' readonly>" +
+              "<button id='btn-mais' onclick='mais()'>+</button>" +
+            "</div>" +
+          "</div>" +
+          "<div class='valor-area'>" +
+            "<h5 class='m-0'>Valor unitário</h5>" +
+            "<label>" + produto.valor + "</label>" +
+          "</div>" +
         "</div>" +
         "<div class='modal-produto-btn-area'>" +
         "<button onclick='addProductToCar()' id='btn-adicionar-carrinho' class='btn-disabled' disabled='true'>" +

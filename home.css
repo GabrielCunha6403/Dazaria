@@ -769,7 +769,7 @@ body {
 }
 
 .table-body .row {
-  padding: 20px 20px;
+  margin: 20px 20px;
 }
 
 .table-body .row .col-product {
@@ -866,7 +866,38 @@ button:hover * {
   src: url("./assets/fonts/Grandissimo.ttf");
 }
 
+@media (max-width: 768px) {
+  .table-products-header {
+    
+  }
+  .background-produto .produto-body {
+    flex-direction: column;
+  }
+  .background-produto .produto-body .produto-image {
+    width: 100%;
+    height: 50vh;
+  }
+  .background-produto .produto-body .produto-info {
+    width: 100%;
+  }
+  .background-produto .produto-body .produto-info .input-quantidade {
+    padding: 20px 0;
+  }
+  .background-produto .produto-body .produto-info .produto-info-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .produto-body .produto-info {
+    padding: 16px 0;
+  }
+}
+
 @media (max-width: 830px) {
+  .table-body .img-content {
+    height: 120px;
+    width: 120px;
+  }
   .background-carrinho .carrinho-container {
     width: 100%;
     margin: 0 11%;
