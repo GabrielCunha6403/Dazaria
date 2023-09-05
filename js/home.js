@@ -52,24 +52,26 @@ function openModalCarrinho() {
       html +=
           "<div class='row'>" +
           "<div class='img-content col-3 col-product' style='background-image: " + produto.imagePath.replaceAll("'", '"') + ";'></div>" +
-            "<div class='col-9'>" +
+            "<div class='col-9 area-mobile'>" +
               "<div class='row'>" +
-                "<div class='col-3 col-product'>" +
+                "<div class='col-4 col-product row-product-info'>" +
                   "<div class='product-info-row'>" +
                     "<h5>" + produto.nome +"</h5>" +
                     "<label>Tamanho: " + produto.tamanho + "</label>" +
                     "<label>Valor: " + produto.valor + "</label>" +
                   "</div>" +
                 "</div>" +
-                "<div class='col-5 col-product'>" +
-                  "<div class='quantidade-area'>" +
-                    "<button id='btn-menos' onclick='menos()'>-</button>" +
-                    "<input type='number' value='" + produto.quantidade + "' min='1' readonly>" +
-                    "<button id='btn-mais' onclick='mais()'>+</button>" +
+                "<div class='col-mobile'>" +
+                  "<div class='col-6 col-product'>" +
+                    "<div class='quantidade-area'>" +
+                      "<button id='btn-menos' onclick='menos()'>-</button>" +
+                      "<input type='number' value='" + produto.quantidade + "' min='1' readonly>" +
+                      "<button id='btn-mais' onclick='mais()'>+</button>" +
+                    "</div>" +
                   "</div>" +
-                "</div>" +
-                "<div class='col-3 col-product'>" +
-                  "<label class='product-value-row'>" + produto.valor + "</label>" +
+                  "<div class='col-6 value-area-mobile'>" +
+                    "<label class='product-value-row'>" + produto.valor + "</label>" +
+                  "</div>" +
                 "</div>" +
               "</div>" +
             "</div>" +

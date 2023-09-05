@@ -862,6 +862,19 @@ button:hover * {
   cursor: pointer;
 }
 
+.col-mobile {
+  flex: 0 0 auto;
+  width: 66.666666666% !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.value-area-mobile {
+  padding: 10px 0;
+  padding-left: 19px;
+}
+
 @font-face {
   font-family: Grandissimo;
   src: url("./assets/fonts/Grandissimo.ttf");
@@ -877,9 +890,21 @@ button:hover * {
   .row-mobile {
     width: 100% !important;
   }
+  .col-product .quantidade-area input, .input-quantidade .quantidade-area input {
+    width: 45px !important;
+  }
+  .value-area-mobile label {
+    font-size: 1.2rem !important;
+  }
 }
 
 @media (max-width: 768px) {
+  .col-product .quantidade-area button, .input-quantidade .quantidade-area {
+    padding: 0 !important; 
+  }
+  .col-product .quantidade-area button, .input-quantidade .quantidade-area button {
+    padding: 0px 10px !important;
+  }
   .row-mobile {
     display: flex;
     width: 60%;
@@ -912,16 +937,48 @@ button:hover * {
   .produto-body .produto-info {
     padding: 16px 0;
   }
+  .background-carrinho .carrinho-container {
+    margin: 0 1% !important;
+  }
 }
 
 @media (max-width: 830px) {
+  .col-mobile {
+    width: 100% !important;
+    padding-top: 20px !important;
+    padding-right: 0 !important;
+  }
+  .row-product-info {
+    width: 100% !important;
+  }
+  .table-body .row .col-product {
+    justify-content: flex-start !important;
+  }
+  .value-area-mobile {
+    display: flex;
+    justify-content: flex-end !important;
+  }
+  .value-area-mobile label {
+    font-size: 1.6rem;
+  }
+  .area-mobile {
+    display: flex;
+    flex-direction: column;
+    width: 78% !important;
+  }
+  .carrinho-body .table-products-header {
+    display: none;
+  }
   .table-body .img-content {
     height: 120px;
-    width: 120px;
+    width: 22%;
+  }
+  .table-body .row {
+    margin-right: 0 !important;
   }
   .background-carrinho .carrinho-container {
     width: 100%;
-    margin: 0 11%;
+    margin: 0 5%;
   }
   .background-carrinho .carrinho-container .carrinho-header h2 {
     font-size: 0.8rem !important;
