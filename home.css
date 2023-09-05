@@ -873,6 +873,7 @@ button:hover * {
 .value-area-mobile {
   padding: 10px 0;
   padding-left: 19px;
+  width: 60%;
 }
 
 @font-face {
@@ -904,6 +905,11 @@ button:hover * {
   }
   .col-product .quantidade-area button, .input-quantidade .quantidade-area button {
     padding: 0px 10px !important;
+  }
+  .value-area-mobile {
+    padding: 10px 0;
+    padding-left: 19px;
+    width: 55%;
   }
   .row-mobile {
     display: flex;
