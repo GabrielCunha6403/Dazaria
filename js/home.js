@@ -39,6 +39,8 @@ function toggleMenu(element) {
 
 function openModalCarrinho() {
 
+  $("html, body").css("overflow-y", "hidden");
+
   let table = $(".carrinho-body .table-body");
 
   if(carrinho.itens.length > 0) {
@@ -98,10 +100,17 @@ function goToFooter () {
 
 function closeMenu() {
   $(".background-menu").removeClass("open");
+  $("html, body").css("overflow-y", "auto");
 }
 
 function closeProduto() {
   $(".background-produto").removeClass("open");
+  $("html, body").css("overflow-y", "auto");
+}
+
+function closeCarrinho() {
+  $('.background-carrinho').removeClass('open');
+  $("html, body").css("overflow-y", "auto");
 }
 
 function sendCarrinhoWhatsapp() {
@@ -119,7 +128,8 @@ function goToInstagram() {
 $(document).ready(function () {
 
   $(".card-produto").on("click", function () {
-    let produto = {
+  $("html, body").css("overflow-y", "hidden");
+  let produto = {
       nome: $(this).find("label").text(),
       valor: $(this).find("span").text(),
       quantidade: 1,
