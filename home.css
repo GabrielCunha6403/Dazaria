@@ -540,6 +540,7 @@ body {
   padding: 8px 15px;
   transition: 0.2s;
   border: 1px solid #303030;
+  margin: 1.5px 0;
   margin-right: 3px;
 }
 
@@ -866,9 +867,29 @@ button:hover * {
   src: url("./assets/fonts/Grandissimo.ttf");
 }
 
+@media (max-width: 520px) {
+  .background-produto .produto-body .produto-image {
+    height: 40vh !important;
+  }
+  .background-produto .produto-body .produto-info .produto-info-mobile {
+    flex-direction: column !important;
+  }
+  .row-mobile {
+    width: 100% !important;
+  }
+}
+
 @media (max-width: 768px) {
-  .table-products-header {
-    
+  .row-mobile {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+  }
+  .produto-body .produto-info h5 {
+    font-size: 1rem;
+  }
+  .produto-body .produto-info h4 {
+    font-size: 1.2rem;
   }
   .background-produto .produto-body {
     flex-direction: column;

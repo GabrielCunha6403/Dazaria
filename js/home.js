@@ -126,26 +126,28 @@ $(document).ready(function () {
       '<div class="produto-info">' +
         "<h4>" + produto.nome + "</h4>" +
         "<div class='produto-info-mobile'>" +
-          "<div class='input-tamanho'>" +
-            "<h5 class='required'>Tamanho</h5>" +
-            "<div class='tamanho-btn-area'>" +
-              "<button onclick='selectProductSize(this)'>P</button>" +
-              "<button onclick='selectProductSize(this)'>M</button>" +
-              "<button onclick='selectProductSize(this)'>G</button>" +
-            "</div>"+
-          "</div>" +
-          "<div class='input-quantidade'>" +
-            "<h5>Quantidade</h5>" +
-            "<div class='quantidade-area'>" +
-              "<button id='btn-menos' onclick='menos()'>-</button>" +
-              "<input type='number' value='1' min='1' readonly>" +
-              "<button id='btn-mais' onclick='mais()'>+</button>" +
-            "</div>" +
-          "</div>" +
           "<div class='valor-area'>" +
             "<h5 class='m-0'>Valor unitário</h5>" +
-            "<label>" + produto.valor + "</label>" +
+            "<label>R$ " + produto.valor + "</label>" +
           "</div>" +
+          "<div class='row-mobile'>" +
+            "<div class='input-tamanho'>" +
+              "<h5 class='required'>Tamanho</h5>" +
+              "<div class='tamanho-btn-area'>" +
+                "<button onclick='selectProductSize(this)'>P</button>" +
+                "<button onclick='selectProductSize(this)'>M</button>" +
+                "<button onclick='selectProductSize(this)'>G</button>" +
+              "</div>"+
+            "</div>" +
+            "<div class='input-quantidade'>" +
+              "<h5>Quantidade</h5>" +
+              "<div class='quantidade-area'>" +
+                "<button id='btn-menos' onclick='menos()'>-</button>" +
+                "<input type='number' value='1' min='1' readonly>" +
+                "<button id='btn-mais' onclick='mais()'>+</button>" +
+              "</div>" +
+            "</div>" +
+           "</div>" +
         "</div>" +
         "<div class='modal-produto-btn-area'>" +
         "<button onclick='addProductToCar()' id='btn-adicionar-carrinho' class='btn-disabled' disabled='true'>" +
