@@ -20,7 +20,7 @@ function calcHours() {
 }
 
 function generateCarrinhoMessage() {
-  let message = calcHours() + ' Tenho interesse no(s) seguinte(s) item(ns): ' + encodeURI('\n');
+  let message = calcHours() + ' Tenho interesse no(s) seguinte(s) item(ns): ' + encodeURI('\n\n');
   for (let i in carrinho.itens){
     let produto = carrinho.itens[i];
     message += produto.quantidade + 'x ' + produto.nome + ' tamanho ' + produto.tamanho + encodeURI('\n') ;
@@ -64,9 +64,9 @@ function openModalCarrinho() {
                 "<div class='col-mobile'>" +
                   "<div class='col-6 col-product'>" +
                     "<div class='quantidade-area'>" +
-                      "<button id='btn-menos' onclick='menos()'>-</button>" +
+                      "<button id='btn-menos' onclick='menos(this)'>-</button>" +
                       "<input type='number' value='" + produto.quantidade + "' min='1' readonly>" +
-                      "<button id='btn-mais' onclick='mais()'>+</button>" +
+                      "<button id='btn-mais' onclick='mais(this)'>+</button>" +
                     "</div>" +
                   "</div>" +
                   "<div class='col-6 value-area-mobile'>" +
@@ -89,6 +89,13 @@ function openModalCarrinho() {
   $(".background-carrinho").addClass("open");
 }
 
+function goToFooter () {
+  closeMenu();
+  $("#close-menu").prop("checked", false);
+  console.log($("#close-menu"));
+  $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+}
+
 function closeMenu() {
   $(".background-menu").removeClass("open");
 }
@@ -106,7 +113,7 @@ function goToWhatsapp() {
 }
 
 function goToInstagram() {
-  window.open("https://www.instagram.com/j.gabriel.cj/", "_blank");
+  window.open("https://www.instagram.com/dazaria.store/", "_blank");
 }
 
 $(document).ready(function () {
@@ -144,9 +151,9 @@ $(document).ready(function () {
             "<div class='input-quantidade'>" +
               "<h5>Quantidade</h5>" +
               "<div class='quantidade-area'>" +
-                "<button id='btn-menos' onclick='menos()'>-</button>" +
+                "<button id='btn-menos' onclick='menos(this)'>-</button>" +
                 "<input type='number' value='1' min='1' readonly>" +
-                "<button id='btn-mais' onclick='mais()'>+</button>" +
+                "<button id='btn-mais' onclick='mais(this)'>+</button>" +
               "</div>" +
             "</div>" +
            "</div>" +
@@ -162,14 +169,18 @@ $(document).ready(function () {
 
 });
 
-function mais() {
-  let qtd = parseInt($(".quantidade-area input").val()) + 1;
-  if (qtd > 0) $(".quantidade-area input").val(qtd);
+function mais(button) {
+  var input = button.previousElementSibling;
+  var valorAtual = parseFloat(input.value) || 1; // Valor padrão para 1 se não for um número válido
+  input.value = valorAtual + 1;
 }
 
-function menos() {
-  let qtd = parseInt($(".quantidade-area input").val()) - 1;
-  if (qtd > 0) $(".quantidade-area input").val(qtd);
+function menos(button) {
+  var input = button.nextElementSibling;
+  var valorAtual = parseFloat(input.value) || 1; // Valor padrão para 1 se não for um número válido
+  if (valorAtual > 1) {
+      input.value = valorAtual - 1;
+  }
 }
 
 function selectProductSize(self) {

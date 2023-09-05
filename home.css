@@ -77,6 +77,7 @@ body {
   text-decoration: underline;
   color: red;
   transition: 500ms;
+  cursor: pointer;
 }
 
 .area {
