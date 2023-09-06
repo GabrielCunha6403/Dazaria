@@ -209,7 +209,7 @@ function addProductToCar() {
     tamanho: modal.find(".tamanho-btn-area .selected").text(),
     imagePath: modal.find(".produto-image").css("backgroundImage"),
   };
-  let index = carrinho.itens.findIndex(({nome}) => nome == produto.nome);
+  let index = carrinho.itens.findIndex((p) => p.nome == produto.nome && p.tamanho == produto.tamanho);
   if(index != -1) carrinho.itens[index].quantidade += produto.quantidade;
   else {
       carrinho.itens.push(produto);
