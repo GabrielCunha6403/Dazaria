@@ -205,12 +205,12 @@ function addProductToCar() {
   let produto = {
     nome: modal.find(".produto-info h4").text(),
     valor: modal.find(".valor-area label").text(),
-    quantidade: modal.find(".input-quantidade input").val(),
+    quantidade: parseInt(modal.find(".input-quantidade input").val()),
     tamanho: modal.find(".tamanho-btn-area .selected").text(),
     imagePath: modal.find(".produto-image").css("backgroundImage"),
   };
-  let index = carrinho.itens.findIndex(({nome}) => nome == produto.nome);
-  if(index != -1) carrinho.itens[index].quantidade += 1;
+  let index = carrinho.itens.findIndex((p) => p.nome == produto.nome && p.tamanho == produto.tamanho);
+  if(index != -1) carrinho.itens[index].quantidade += produto.quantidade;
   else {
       carrinho.itens.push(produto);
       carrinho.quantidade++;
