@@ -94,7 +94,6 @@ function openModalCarrinho() {
 function goToFooter () {
   closeMenu();
   $("#close-menu").prop("checked", false);
-  console.log($("#close-menu"));
   $("html, body").animate({ scrollTop: $(document).height() }, "slow");
 }
 
