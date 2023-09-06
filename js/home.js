@@ -205,7 +205,7 @@ function addProductToCar() {
   let produto = {
     nome: modal.find(".produto-info h4").text(),
     valor: modal.find(".valor-area label").text(),
-    quantidade: modal.find(".input-quantidade input").val(),
+    quantidade: parseInt(modal.find(".input-quantidade input").val()),
     tamanho: modal.find(".tamanho-btn-area .selected").text(),
     imagePath: modal.find(".produto-image").css("backgroundImage"),
   };
