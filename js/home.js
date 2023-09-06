@@ -210,7 +210,7 @@ function addProductToCar() {
     imagePath: modal.find(".produto-image").css("backgroundImage"),
   };
   let index = carrinho.itens.findIndex(({nome}) => nome == produto.nome);
-  if(index != -1) carrinho.itens[index].quantidade += 1;
+  if(index != -1) carrinho.itens[index].quantidade += produto.quantidade;
   else {
       carrinho.itens.push(produto);
       carrinho.quantidade++;
