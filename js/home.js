@@ -60,7 +60,7 @@ function openModalCarrinho() {
                   "<div class='product-info-row'>" +
                     "<h5>" + produto.nome +"</h5>" +
                     "<label>Tamanho: " + produto.tamanho + "</label>" +
-                    "<label>Valor: " + produto.valor + "</label>" +
+                    "<label id='produto-valor'>Valor: " + produto.valor + "</label>" +
                   "</div>" +
                 "</div>" +
                 "<div class='col-mobile'>" +
@@ -72,7 +72,7 @@ function openModalCarrinho() {
                     "</div>" +
                   "</div>" +
                   "<div class='col-6 value-area-mobile'>" +
-                    "<label class='product-value-row'>" + produto.valor + "</label>" +
+                    "<label class='product-value-row'>R$ " + (parseFloat(produto.valor.split(' ')[1]) * parseFloat(produto.quantidade)).toFixed(2) + "</label>" +
                   "</div>" +
                 "</div>" +
               "</div>" +
@@ -181,15 +181,29 @@ $(document).ready(function () {
 
 function mais(button) {
   var input = button.previousElementSibling;
-  var valorAtual = parseFloat(input.value) || 1; // Valor padrão para 1 se não for um número válido
+  var valorAtual = parseFloat(input.value) || 1;
   input.value = valorAtual + 1;
+  if($(".background-carrinho").hasClass("open")) {
+    let campo = $(button).parent().parent().parent().parent().children(".row-product-info").children(".product-info-row").children("#produto-valor");
+    let valorAtualizar = $(button).parent().parent().parent().children(".value-area-mobile").children(".product-value-row");
+    let value = parseFloat($(campo).text().split(' ')[2]);
+    let result = "R$ " + (value * parseFloat(input.value)).toFixed(2);
+    $(valorAtualizar).text(result);
+  }
 }
 
 function menos(button) {
   var input = button.nextElementSibling;
-  var valorAtual = parseFloat(input.value) || 1; // Valor padrão para 1 se não for um número válido
+  var valorAtual = parseFloat(input.value) || 1;
   if (valorAtual > 1) {
-      input.value = valorAtual - 1;
+    input.value = valorAtual - 1;
+  }
+  if($(".background-carrinho").hasClass("open")) {
+    let campo = $(button).parent().parent().parent().parent().children(".row-product-info").children(".product-info-row").children("#produto-valor");
+    let valorAtualizar = $(button).parent().parent().parent().children(".value-area-mobile").children(".product-value-row");
+    let value = parseFloat($(campo).text().split(' ')[2]);
+    let result = "R$ " + (value * parseFloat(input.value)).toFixed(2);
+    $(valorAtualizar).text(result);
   }
 }
 
