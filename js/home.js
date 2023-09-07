@@ -53,13 +53,17 @@ function openModalCarrinho() {
       const produto = carrinho.itens[i];
       html +=
           "<div class='row'>" +
-          "<div class='img-content col-3 col-product' style='background-image: " + produto.imagePath.replaceAll("'", '"') + ";'></div>" +
+          "<div class='img-content col-3 col-product' style='background-image: " + produto.imagePath.replaceAll("'", '"') + ";'>" +
+            "<button onclick='deleteItem(this)' class='excluir-item'>" +
+              "<svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d='M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z'/></svg>" +
+            "</button>" +
+          "</div>" +
             "<div class='col-9 area-mobile'>" +
               "<div class='row'>" +
                 "<div class='col-4 col-product row-product-info'>" +
                   "<div class='product-info-row'>" +
                     "<h5>" + produto.nome +"</h5>" +
-                    "<label>Tamanho: " + produto.tamanho + "</label>" +
+                    "<label id='produto-tamanho'>Tamanho: " + produto.tamanho + "</label>" +
                     "<label id='produto-valor'>Valor: " + produto.valor + "</label>" +
                   "</div>" +
                 "</div>" +
@@ -231,6 +235,29 @@ function addProductToCar() {
   }
   $('.carrinho-btn span').removeClass('d-none');
   closeProduto();
+}
+
+function deleteItem(item) {
+  let row = $(item).parent().parent();
+  let nome = $(row)
+  .children(".area-mobile")
+  .children(".row")
+  .children(".col-product")
+  .children(".product-info-row")
+  .children("h5").text();
+  let tamanho = $(row)
+  .children(".area-mobile")
+  .children(".row")
+  .children(".col-product")
+  .children(".product-info-row")
+  .children("#produto-tamanho").text().split(': ')[1];
+  console.log(tamanho);
+  let index = carrinho.itens.findIndex((i)=> i.nome === nome && i.tamanho === tamanho);
+  carrinho.itens.splice(index, 1);
+  carrinho.quantidade -= 1;
+  $('#carrinho-btn span').text((carrinho.quantidade).toString());
+  if(carrinho.quantidade == 0) $('.carrinho-btn span').addClass('d-none');
+  openModalCarrinho();
 }
 
 function cleanCarrinho() {
