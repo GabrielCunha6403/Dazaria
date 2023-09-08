@@ -51,7 +51,6 @@ function openModalCarrinho() {
     $(".empty-message").addClass("d-none");
     $(".table-products").removeClass("d-none");
     let html = '';
-    console.log(carrinho.itens);
     for (let i = 0; i < carrinho.itens.length; i++) {
       const produto = carrinho.itens[i];
       html +=
