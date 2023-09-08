@@ -42,8 +42,10 @@ function openModalCarrinho() {
   $("html, body").css("overflow-y", "hidden");
 
   let table = $(".carrinho-body .table-body");
+  let valorTotal = 0;
 
   if(carrinho.itens.length > 0) {
+    $(".valor-total").removeClass("d-none");
     $(".carrinho-sub button").prop("disabled", false);
     $(".carrinho-sub #finalizar-whatsapp").removeClass("btn-disabled");
     $(".empty-message").addClass("d-none");
@@ -82,11 +84,14 @@ function openModalCarrinho() {
               "</div>" +
             "</div>" +
           "</div>"
-      
+        valorTotal += parseFloat(parseFloat(produto.valor.split(' ')[1]) * parseFloat(produto.quantidade));
     }
     table.html(html);
+    carrinho.valorTotal = valorTotal;
+    $(".valor-total h4").text("R$ " + valorTotal.toFixed(2));
   } else {
     $(".empty-message").removeClass("d-none");
+    $(".valor-total").addClass("d-none");
     $(".table-products").addClass("d-none");
     $(".carrinho-sub #finalizar-whatsapp").addClass("btn-disabled");
     $(".carrinho-sub button").prop("disabled", true);
@@ -192,6 +197,7 @@ function mais(button) {
     let value = parseFloat($(campo).text().split(' ')[2]);
     let result = "R$ " + (value * parseFloat(input.value)).toFixed(2);
     $(valorAtualizar).text(result);
+    updateValorTotal();
   }
 }
 
@@ -207,7 +213,17 @@ function menos(button) {
     let value = parseFloat($(campo).text().split(' ')[2]);
     let result = "R$ " + (value * parseFloat(input.value)).toFixed(2);
     $(valorAtualizar).text(result);
+    updateValorTotal();
   }
+}
+
+function updateValorTotal() {
+  let valores = $(".product-value-row").map((_, el) => $(el).text().split(' ')[1]).get();
+  let aux = 0;
+  for (let i = 0; i < valores.length; i++) {
+    aux += parseFloat(valores[i]);
+  }
+  $(".valor-total h4").text("R$ " + aux.toFixed(2));
 }
 
 function selectProductSize(self) {
@@ -251,7 +267,6 @@ function deleteItem(item) {
   .children(".col-product")
   .children(".product-info-row")
   .children("#produto-tamanho").text().split(': ')[1];
-  console.log(tamanho);
   let index = carrinho.itens.findIndex((i)=> i.nome === nome && i.tamanho === tamanho);
   carrinho.itens.splice(index, 1);
   carrinho.quantidade -= 1;
