@@ -51,6 +51,7 @@ function openModalCarrinho() {
     $(".empty-message").addClass("d-none");
     $(".table-products").removeClass("d-none");
     let html = '';
+    console.log(carrinho.itens);
     for (let i = 0; i < carrinho.itens.length; i++) {
       const produto = carrinho.itens[i];
       html +=
@@ -78,7 +79,7 @@ function openModalCarrinho() {
                     "</div>" +
                   "</div>" +
                   "<div class='col-6 value-area-mobile'>" +
-                    "<label class='product-value-row'>R$ " + (parseFloat(produto.valor.split(' ')[1]) * parseFloat(produto.quantidade)).toFixed(2) + "</label>" +
+                    "<label class='product-value-row'>R$ " + (parseFloat(produto.valor.split(' ')[1]) * parseFloat(produto.quantidade)) + "</label>" +
                   "</div>" +
                 "</div>" +
               "</div>" +
@@ -237,7 +238,7 @@ function addProductToCar() {
   let modal = $(".produto-body");
   let produto = {
     nome: modal.find(".produto-info h4").text(),
-    valor: modal.find(".valor-area label").text(),
+    valor: modal.find(".valor-area label").text().replace(',', '.'),
     quantidade: parseInt(modal.find(".input-quantidade input").val()),
     tamanho: modal.find(".tamanho-btn-area .selected").text(),
     imagePath: modal.find(".produto-image").css("backgroundImage"),
