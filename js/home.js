@@ -277,6 +277,7 @@ function deleteItem(item) {
 
 function cleanCarrinho() {
   carrinho.itens = [];
+  carrinho.quantidade = 0;
   $('.carrinho-btn span').addClass('d-none');
   openModalCarrinho();
 }
