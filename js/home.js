@@ -25,7 +25,8 @@ function generateCarrinhoMessage() {
     let produto = carrinho.itens[i];
     message += produto.quantidade + 'x ' + produto.nome + ' tamanho ' + produto.tamanho + encodeURI('\n') ;
   }
-  message += 'Fico no aguardo do retorno!';
+
+  message += '\nFico no aguardo do retorno!';
   return message;
 }
 
